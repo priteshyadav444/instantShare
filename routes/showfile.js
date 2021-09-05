@@ -28,6 +28,10 @@ router.post("/send", async (req, res) => {
     if (fileData.sender) {
         return res.status(442).send({ error: "Email Alredy Sent!" });
     }
+    fileData.sender = sender;
+    fileData.receiver = receiver;
+    const response = await fileData.save();
+
     const sendMail = require("../services/emailService");
     try {
         sendMail(
@@ -40,6 +44,7 @@ router.post("/send", async (req, res) => {
     } catch (error) {
         console.log("Email Sending Failed!")
     }
+    res.send({ success: true })
 
 
 })
