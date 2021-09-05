@@ -17,8 +17,11 @@ app.use("/files/", require("./routes/showfile"))
 app.use("/files/download/", require("./routes/download"))
 
 
-
-app.use(cors())
+const corsOptions = {
+    origin: process.env.ALLOWED_CLIENTS.split(',')
+    // ['http://localhost:3000', 'http://localhost:5000', 'http://localhost:3300']
+}
+app.use(cors(corsOptions))
 
 connectDb();
 app.listen(PORT, () => {
