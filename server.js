@@ -17,9 +17,6 @@ app.use("/files/", require("./routes/showfile"))
 app.use("/files/download/", require("./routes/download"))
 
 
-const corsOption = {
-    origin: process.env.ALLWOD_CLIENTS.split(",")
-}
 
 app.use(cors())
 
