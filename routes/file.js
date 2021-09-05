@@ -48,7 +48,6 @@ router.post("/", (req, res) => {
 
         console.log(req.method + "  " + req.file.mimetype + "   " + req.file.size)
         return res.json({ file: `${process.env.BASE_URL}/files/${response.uuid}` })
-
     })
 })
 

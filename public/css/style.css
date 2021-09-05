@@ -54,3 +54,8 @@ section.download {
 .send-btn-container a:hover {
   background: var(--dark-blue);
 }
+@media screen and (max-width: 900px) {
+  section.download {
+    width: 200px;
+  }
+}

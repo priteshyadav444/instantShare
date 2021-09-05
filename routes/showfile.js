@@ -17,9 +17,9 @@ router.get("/:uuid", async (req, res) => {
 
 })
 router.post("/send", async (req, res) => {
-    const { uuid, emailTo, emailFrom } = req.body;
-
-    if (!uuid || !emailTo || !emailFrom) {
+    const { uuid, receiver, sender } = req.body;
+    console.log(req.body)
+    if (!uuid || !receiver || !sender) {
         return res.status(442).send({ error: "All field required" });
     }
 
@@ -31,11 +31,11 @@ router.post("/send", async (req, res) => {
     const sendMail = require("../services/emailService");
     try {
         sendMail(
-            emailFrom,
-            emailTo,
+            sender,
+            receiver,
             "InstantShare",
-            `${emailFrom} sent a file`,
-            require("../services/emailTemplate")({ sender: emailFrom, downloadLink: `${process.env.BASE_URL}/files/${fileData.uuid}`, size: parseInt(fileData.size / 1000) + "KB", expires: "In 24 hour" })
+            `${sender} sent a file`,
+            require("../services/emailTemplate")({ sender: sender, downloadLink: `${process.env.BASE_URL}/files/${fileData.uuid}`, size: parseInt(fileData.size / 1000) + "KB", expires: "In 24 hour" })
         )
     } catch (error) {
         console.log("Email Sending Failed!")
