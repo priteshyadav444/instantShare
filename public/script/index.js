@@ -15,7 +15,7 @@ const emailForm = document.querySelector("#emailForm");
 
 const toast = document.querySelector(".toast");
 
-const baseURL = "https://instantshare444.herokuapp.com/";
+const baseURL = "https://instantshare444.herokuapp.com";
 const uploadURL = `${baseURL}/api/uploads`;
 const emailURL = `${baseURL}/files/send`;
 
