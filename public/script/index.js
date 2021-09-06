@@ -144,8 +144,8 @@ emailForm.addEventListener("submit", (e) => {
 
   const formData = {
     uuid: url.split("/").splice(-1, 1)[0],
-    sender: emailForm.elements["to-email"].value,
-    receiver: emailForm.elements["from-email"].value,
+    sender: emailForm.elements["from-email"].value,
+    receiver: emailForm.elements["to-email"].value,
   };
   console.log(formData);
   fetch(emailURL, {

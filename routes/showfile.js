@@ -17,7 +17,7 @@ router.get("/:uuid", async (req, res) => {
 
 })
 router.post("/send", async (req, res) => {
-    const { uuid, receiver, sender } = req.body;
+    const { uuid, sender, receiver } = req.body;
     if (!uuid || !receiver || !sender) {
         return res.status(442).send({ error: "All field required" });
     }
@@ -43,7 +43,8 @@ router.post("/send", async (req, res) => {
     } catch (error) {
         console.log("Email Sending Failed!")
     }
-    console.log("Email Sent!")
+
+    console.log("Email Sent to! : " + receiver)
     res.send({ success: true })
 
 
