@@ -1,2 +1,4 @@
 # instantShare
-Share any File Forment .
+Share any File on Web .
+Send Link on Mail
+
